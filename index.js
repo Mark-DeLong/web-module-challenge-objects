@@ -50,17 +50,23 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-// export const burger = {
-//   name: "Burger", 
-//   price: 18, 
-//   category: "Lunch", 
-//   discount: ["teacher", "student", "public"]
-//   }
+export const burger = {
+  name: "Burger", 
+  price: 18, 
+  category: "Lunch", 
+  discount: function(string){
+    if (string === "teacher" || string === "student"){
+    return 18 * .75;
+  } else {
+    return 18 * .90;
+  }
+}
+}
 
-// console.log(burgerdiscount("teacher"))
 
+console.log(burger.discount('teacher'))
 
-
+ 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
     {name: "Daniela", rating: 5, feedback:"Beautiful atmosphere and wonderful vegan options!"},
@@ -114,7 +120,7 @@ function getReviewByIndex(array, index) {
   let name = array[index].name
   let rating = array[index].rating
   let feedback = array[index].feedback
-  return `${array[index].name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`
+  return `${name} gave the restaurant a ${rating} star review, and their feedback was: ${feedback}`
 }
 
 
@@ -134,10 +140,9 @@ Use the getLastReview function below to do the following:
 
 
 function getLastReview(array) {
-  
-} 
-
-getLastReview(reviews)
+  const index = array.length -1;
+  return `${array[index].name} gave the restaurant a ${array[index].rating} star review, and their feedback was: ${array[index].feedback}`;
+}
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
